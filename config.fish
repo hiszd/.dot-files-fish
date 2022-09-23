@@ -23,6 +23,9 @@ set fish_color_param brcyan
 
 ### ALIASES ###
 
+# config alias
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 # apt package manager
 alias aptud='sudo apt update'
 alias aptug='sudo apt upgrade -y'
