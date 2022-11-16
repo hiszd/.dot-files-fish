@@ -4,7 +4,7 @@ set EDITOR "nvim"
 export EDITOR=nvim
 set VISUAL "nvim"
 
-set PATH $PATH ~/.cargo/bin/ ~/.local/share/nvim/lsp_servers
+set PATH $PATH ~/.cargo/bin/ ~/.local/share/nvim/lsp_servers ~/.local/bin
 set LANGUAGE en_US.UTF-8
 set LC_ALL en_US.UTF-8
 
@@ -74,5 +74,7 @@ alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias newcon="openvpn3 session-start --config "
 
 alias ttor="tmuxinator"
+
+exec ./leader.sh
 
 fish_ssh_agent
