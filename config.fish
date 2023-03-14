@@ -8,6 +8,8 @@ set PATH $PATH ~/.cargo/bin/ ~/.local/share/nvim/lsp_servers ~/.local/bin
 set LANGUAGE en_US.UTF-8
 set LC_ALL en_US.UTF-8
 
+set RUST_SRC_PATH "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src"
+
 set -x SHELL /bin/bash
 
 function fish_user_key_bindings
@@ -75,6 +77,6 @@ alias newcon="openvpn3 session-start --config "
 
 alias ttor="tmuxinator"
 
-exec ./leader.sh
+# exec ./leader.sh
 
 fish_ssh_agent
