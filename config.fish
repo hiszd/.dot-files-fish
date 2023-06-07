@@ -42,6 +42,11 @@ alias .1='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
 
+# make the directory then cd into it
+function mkcd
+  mkdir -pv $argv[1] && cd $argv[1]
+end
+
 # mkdir create parents
 alias mkdir='mkdir -pv'
 
@@ -78,6 +83,11 @@ alias ttor="tmuxinator"
 
 alias rdep-dc01="rdesktop -u 'corp\administrator' -p ~ZqpMvgt5! 10.1.1.64 -f"
 alias rdep-fp01="rdesktop -u 'corp\administrator' -p ~ZqpMvgt5! 10.1.1.65 -f"
+
+alias nvim-zprog="nvimr 66.228.34.108:8001"
+
+alias bright="sudo brightnessctl -d intel_backlight s "
+
 # exec ./leader.sh
 
 fish_ssh_agent
