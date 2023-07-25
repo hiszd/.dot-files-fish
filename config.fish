@@ -64,9 +64,13 @@ alias pull='git pull'
 alias push='git push'
 
 # tmux
-alias tnew='tmux new -s'
-alias tat='tmux a -t'
+alias tnew='tmux new -s '
+alias tat='tmux a -t '
 alias tls='tmux ls'
+alias trm='tmux kill-session -t '
+
+# tmuxinator
+alias tin='tmuxinator'
 
 # sudo stuff
 alias reboot='sudo reboot'
