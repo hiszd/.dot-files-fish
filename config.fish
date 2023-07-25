@@ -71,6 +71,7 @@ alias trm='tmux kill-session -t '
 
 # tmuxinator
 alias tin='tmuxinator'
+alias tstart='tin start nvim && tin start ergoone'
 
 # sudo stuff
 alias reboot='sudo reboot'
