@@ -74,7 +74,7 @@ alias tin='tmuxinator'
 alias tstart='tin start nvim && tin start rustproj ergoone'
 
 # sudo stuff
-alias reboot='sudo reboot'
+alias reboot='sudo shutdown -r now'
 alias systemctl='sudo systemctl'
 alias shutdown='sudo shutdown -h now'
 
@@ -96,3 +96,6 @@ alias bright="sudo brightnessctl -d intel_backlight s "
 # exec ./leader.sh
 
 fish_ssh_agent
+
+# opam configuration
+source /home/zion/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
