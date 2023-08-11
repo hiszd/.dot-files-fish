@@ -76,7 +76,7 @@ alias tstart='tin start nvim && tin start rustproj ergoone'
 # sudo stuff
 alias reboot='sudo shutdown -r now'
 alias systemctl='sudo systemctl'
-alias shutdown='sudo shutdown -h now'
+alias sdown='sudo shutdown -h now'
 
 # switch between shells
 alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
