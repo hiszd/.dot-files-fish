@@ -9,7 +9,7 @@ set LC_ALL en_US.UTF-8
 
 set RUST_SRC_PATH "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src"
 
-set -x SHELL /bin/bash
+set -x SHELL bash
 
 function fish_user_key_bindings
   fish_vi_key_bindings
@@ -25,7 +25,7 @@ set fish_color_param brcyan
 ### ALIASES ###
 
 # config alias
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # apt package manager
 alias aptud='sudo apt update'
@@ -79,8 +79,8 @@ alias systemctl='sudo systemctl'
 alias sdown='sudo shutdown -h now'
 
 # switch between shells
-alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
-alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
+alias tofish="sudo chsh $USER -s fish && echo 'Now log out.'"
+alias tobash="sudo chsh $USER -s bash && echo 'Now log out.'"
 
 alias newcon="openvpn3 session-start --config "
 
