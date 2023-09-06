@@ -24,6 +24,9 @@ set fish_color_param brcyan
 
 ### ALIASES ###
 
+# NIX aliases
+alias ns='nix-shell --command "fish"'
+
 # config alias
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
