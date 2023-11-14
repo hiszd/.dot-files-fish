@@ -40,6 +40,9 @@ alias aptls='apt search'
 # ls with all the flags
 alias ls='ls -lah --color=auto'
 
+# ls disks by label
+alias dls='ls -lah --color=auto /dev/disk/by-label/'
+
 # cd through the directories
 alias .1='cd ..'
 alias .2='cd ../..'
