@@ -22,6 +22,8 @@ set fish_color_command brcyan
 set fish_color_error '#ff6c6b'
 set fish_color_param brcyan
 
+set nvm_default_version "latest"
+
 ### ALIASES ###
 
 # config alias
