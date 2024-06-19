@@ -73,14 +73,15 @@ alias pull='git pull'
 alias push='git push'
 
 # tmux
-alias tnew='tmux new -s '
-alias tat='tmux a -t '
+alias tcr='tmux new -s '
 alias tls='tmux ls'
 alias trm='tmux kill-session -t '
 
 # tmuxinator
 alias tin='tmuxinator'
 alias tins='tmuxinator start'
+alias tnew="~/.config/tmuxinator/scripts/tmux-sessionizer"
+alias tat="~/.config/tmuxinator/scripts/tmux-attach"
 
 # sudo stuff
 alias reboot='sudo shutdown -r now'
