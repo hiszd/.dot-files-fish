@@ -40,6 +40,12 @@ alias aptin='sudo apt install -y'
 alias aptrm='sudo apt remove'
 alias aptls='apt search'
 
+# zypper package manager
+alias zud='sudo zypper update -y'
+alias zin='sudo zypper install -y'
+alias zrm='sudo zypper remove'
+alias zls='sudo zypper search'
+
 # ls with all the flags
 alias ls='ls -lah --color=auto'
 
