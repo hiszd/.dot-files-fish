@@ -3,7 +3,9 @@ set EDITOR "nvim"
 export EDITOR=nvim
 set VISUAL "nvim"
 
-set PATH $PATH ~/.cargo/bin/ ~/.local/share/nvim/lsp_servers ~/.local/bin
+set PNPM_HOME "/home/zion/.local/share/pnpm"
+set BUN_INSTALL "$HOME/.bun"
+set PATH $PATH ~/.cargo/bin/ ~/.local/share/nvim/lsp_servers ~/.local/bin $BUN_INSTALL/bin $PNPM_HOME
 set LANGUAGE en_US.UTF-8
 set LC_ALL en_US.UTF-8
 
@@ -39,6 +41,12 @@ alias aptug='sudo apt upgrade -y'
 alias aptin='sudo apt install -y'
 alias aptrm='sudo apt remove'
 alias aptls='apt search'
+
+# zypper package manager
+alias zug='sudo zypper refresh && sudo zypper upgrade -y'
+alias zin='sudo zypper install -y'
+alias zrm='sudo zypper remove'
+alias zls='sudo zypper search'
 
 # ls with all the flags
 alias ls='ls -lah --color=auto'
