@@ -1,7 +1,7 @@
 set fish_greeting
-set EDITOR "nvim"
+set EDITOR nvim
 export EDITOR=nvim
-set VISUAL "nvim"
+set VISUAL nvim
 
 set PATH $PATH ~/.cargo/bin/ ~/.local/share/nvim/lsp_servers ~/.local/bin
 set LANGUAGE en_US.UTF-8
@@ -12,7 +12,7 @@ set RUST_SRC_PATH "$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib
 set -x SHELL bash
 
 function fish_user_key_bindings
-  fish_vi_key_bindings
+    fish_vi_key_bindings
 end
 
 ### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
@@ -22,7 +22,7 @@ set fish_color_command brcyan
 set fish_color_error '#ff6c6b'
 set fish_color_param brcyan
 
-set nvm_default_version "latest"
+set nvm_default_version latest
 
 ### ALIASES ###
 
@@ -58,7 +58,7 @@ alias .3='cd ../../..'
 
 # make the directory then cd into it
 function mkcd
-  mkdir -pv $argv[1] && cd $argv[1]
+    mkdir -pv $argv[1] && cd $argv[1]
 end
 
 # mkdir create parents
@@ -84,9 +84,10 @@ alias trm='tmux kill-session -t '
 
 # tmuxinator
 alias tin='tmuxinator'
-alias tins='tmuxinator start'
-alias tnew="~/.config/tmuxinator/scripts/tmux-sessionizer"
-alias tat="~/.config/tmuxinator/scripts/tmux-attach"
+# alias tins='tmuxinator start'
+alias tins="~/.config/muxrs/scripts/tmux-sessionizer 1 ~/.config"
+alias tnew="~/.config/muxrs/scripts/tmux-sessionizer 2 ~/programming"
+alias tat="~/.config/muxrs/scripts/tmux-attach"
 
 # sudo stuff
 alias reboot='sudo shutdown -r now'
@@ -113,4 +114,4 @@ alias bright="sudo brightnessctl -d intel_backlight s "
 fish_ssh_agent
 
 # opam configuration
-source /home/zion/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+source /home/zion/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
