@@ -3,7 +3,19 @@ set EDITOR nvim
 export EDITOR=nvim
 set VISUAL nvim
 
-set PATH $PATH ~/.cargo/bin/ ~/.local/share/nvim/lsp_servers ~/.local/bin
+# 1. Identify the OS
+set -l os_type (grep -w "^ID" /etc/os-release | cut -d'=' -f2 | tr -d '"')
+
+# 2. Add the specific subdirectory IF it exists
+set -l os_func_path "$__fish_config_dir/functions/$os_type"
+
+if test -d $os_func_path
+    # We prepend it to the path so OS-specific functions 
+    # override agnostic ones if they have the same name.
+    set fish_function_path $os_func_path $fish_function_path
+end
+
+set PATH $PATH ~/.cargo/bin/ ~/.local/share/nvim/lsp_servers ~/.local/bin ~/.opencode/bin
 set LANGUAGE en_US.UTF-8
 set LC_ALL en_US.UTF-8
 
@@ -15,38 +27,25 @@ function fish_user_key_bindings
     fish_vi_key_bindings
 end
 
-### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
-set fish_color_normal brcyan
-set fish_color_autosuggestion '#7d7d7d'
-set fish_color_command brcyan
-set fish_color_error '#ff6c6b'
-set fish_color_param brcyan
+# ### AUTOCOMPLETE AND HIGHLIGHT COLORS ###
+# set fish_color_normal brcyan
+# set fish_color_autosuggestion '#7d7d7d'
+# set fish_color_command brcyan
+# set fish_color_error '#ff6c6b'
+# set fish_color_param brcyan
 
 set nvm_default_version latest
 
 ### ALIASES ###
 
-# NIX aliases
-alias ns='nix-shell --command "fish"'
+# # ls with all the flags
+# alias ls='ls -lah --color=auto'
 
-# config alias
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-# apt package manager
-alias aptud='sudo apt update'
-alias aptug='sudo apt upgrade -y'
-alias aptin='sudo apt install -y'
-alias aptrm='sudo apt remove'
-alias aptls='apt search'
-
-# zypper package manager
-alias zud='sudo zypper update -y'
-alias zin='sudo zypper install -y'
-alias zrm='sudo zypper remove'
-alias zls='sudo zypper search'
-
-# ls with all the flags
-alias ls='ls -lah --color=auto'
+if status is-interactive
+    if command -v zoxide &>/dev/null
+        zoxide init fish | source
+    end
+end
 
 # ls disks by label
 alias dls='ls -lah --color=auto /dev/disk/by-label/'
@@ -55,27 +54,6 @@ alias dls='ls -lah --color=auto /dev/disk/by-label/'
 alias .1='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
-
-# make the directory then cd into it
-function mkcd
-    mkdir -pv $argv[1] && cd $argv[1]
-end
-
-# mkdir create parents
-alias mkdir='mkdir -pv'
-
-# confirm before overwriting something
-alias cp="cp -i"
-alias mv='mv -i'
-
-# git
-alias addup='git add -u'
-alias addall='git add .'
-alias checkout='git checkout'
-alias clone='git clone'
-alias commit='git commit -m'
-alias pull='git pull'
-alias push='git push'
 
 # tmux
 alias tcr='tmux new -s '
@@ -91,25 +69,14 @@ alias tat="~/.config/muxrs/scripts/tmux-attach"
 
 # sudo stuff
 alias reboot='sudo shutdown -r now'
-alias systemctl='sudo systemctl'
+alias ssysc='sudo systemctl'
 alias sdown='sudo shutdown -h now'
 
 # switch between shells
 alias tofish="sudo chsh $USER -s fish && echo 'Now log out.'"
 alias tobash="sudo chsh $USER -s bash && echo 'Now log out.'"
 
-alias newcon="openvpn3 session-start --config "
-
-alias ttor="tmuxinator"
-
-alias rdep-dc01="rdesktop -u 'corp\administrator' -p ~ZqpMvgt5! 10.1.1.64 -f"
-alias rdep-fp01="rdesktop -u 'corp\administrator' -p ~ZqpMvgt5! 10.1.1.65 -f"
-
-alias nvim-zprog="nvimr 66.228.34.108:8001"
-
 alias bright="sudo brightnessctl -d intel_backlight s "
-
-# exec ./leader.sh
 
 fish_ssh_agent
 
